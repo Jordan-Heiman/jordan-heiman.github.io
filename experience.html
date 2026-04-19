@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience – Jordan Heiman</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep:      #2a2e1e;
+    --olive:     #5a6830;
+    --moss:      #94a85a;
+    --bone:      #f0ede2;
+    --parchment: #f7f5ee;
+    --ember:     #c45c2a;
+    --ember-lt:  #e07a48;
+    --mid:       #484e30;
+    --light:     #7a8250;
+    --muted:     #9a9e80;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--parchment);
+    color: var(--deep);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--parchment);
+    border-bottom: 1px solid rgba(42,46,30,0.1);
+    padding: 1.1rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    color: var(--deep);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ember); }
+  .nav-links a.active { color: var(--deep); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--deep);
+    padding: 4rem 5.5rem;
+  }
+  .page-header-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .page-header .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 0.6rem;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--bone);
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+  .page-header-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--ember);
+    margin-bottom: 1.2rem;
+  }
+  .page-header p {
+    font-size: 0.95rem;
+    color: rgba(240,237,226,0.65);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+  .download-btn {
+    display: inline-block;
+    margin-top: 1.6rem;
+    background: transparent;
+    border: 1.5px solid rgba(240,237,226,0.3);
+    color: rgba(240,237,226,0.75);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .download-btn:hover { border-color: var(--ember); color: var(--ember-lt); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--deep) 0%, var(--olive) 40%, var(--moss) 72%, var(--bone) 100%);
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .cv-body {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 4rem 5.5rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0 4rem;
+  }
+
+  /* ── SIDEBAR NAV ── */
+  .cv-sidebar {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+  }
+  .cv-sidebar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .cv-sidebar-nav a {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.4rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.8rem;
+    transition: all 0.2s;
+  }
+  .cv-sidebar-nav a:hover { color: var(--ember); border-left-color: var(--ember); }
+
+  /* ── CV CONTENT ── */
+  .cv-content {
+    min-width: 0;
+  }
+
+  /* ── SECTION ── */
+  .cv-section {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(42,46,30,0.08);
+  }
+  .cv-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 0.5rem;
+  }
+  .cv-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 0.4rem;
+  }
+  .section-rule {
+    width: 32px;
+    height: 2px;
+    background: var(--moss);
+    margin-bottom: 2rem;
+    margin-top: 0.6rem;
+  }
+
+  /* ── ENTRIES ── */
+  .cv-entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 2rem;
+    margin-bottom: 2rem;
+  }
+  .cv-entry:last-child { margin-bottom: 0; }
+
+  .cv-entry-date {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+    padding-top: 0.15rem;
+    text-align: right;
+  }
+  .cv-entry-date .date-range {
+    display: block;
+    font-weight: 500;
+  }
+  .cv-entry-date .date-sup {
+    display: block;
+    font-size: 0.72rem;
+    margin-top: 0.2rem;
+  }
+
+  .cv-entry-body {}
+  .cv-entry-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 0.1rem;
+  }
+  .cv-entry-body .org {
+    font-size: 0.88rem;
+    color: var(--olive);
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+  }
+  .cv-entry-body .location {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+  .cv-entry-body .pi {
+    font-size: 0.8rem;
+    color: var(--light);
+    font-style: italic;
+    margin-bottom: 0.7rem;
+  }
+  .cv-entry-body ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .cv-entry-body ul li {
+    font-size: 0.875rem;
+    color: var(--mid);
+    line-height: 1.65;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .cv-entry-body ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--moss);
+  }
+
+  /* ── EDUCATION ENTRIES ── */
+  .edu-entry {
+    margin-bottom: 1.8rem;
+  }
+  .edu-entry:last-child { margin-bottom: 0; }
+  .edu-entry h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--deep);
+  }
+  .edu-entry .degree {
+    font-size: 0.9rem;
+    color: var(--mid);
+    margin-bottom: 0.15rem;
+  }
+  .edu-entry .thesis {
+    font-size: 0.85rem;
+    color: var(--light);
+    font-style: italic;
+    margin-bottom: 0.15rem;
+  }
+  .edu-entry .edu-meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  /* ── PRESENTATIONS ── */
+  .presentation-entry {
+    margin-bottom: 1.6rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--ember);
+  }
+  .presentation-entry:last-child { margin-bottom: 0; }
+  .presentation-entry .pres-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 0.2rem;
+  }
+  .presentation-entry .pres-meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .presentation-entry .pres-type {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 0.3rem;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+  }
+  .skills-card {
+    background: white;
+    border: 1px solid rgba(42,46,30,0.08);
+    padding: 1.4rem 1.6rem;
+    position: relative;
+  }
+  .skills-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--ember);
+  }
+  .skills-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 0.8rem;
+  }
+  .skills-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .skills-card ul li {
+    font-size: 0.845rem;
+    color: var(--mid);
+    line-height: 1.55;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .skills-card ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--moss);
+  }
+
+  /* ── CERTS & HONORS ── */
+  .simple-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .simple-list li {
+    font-size: 0.875rem;
+    color: var(--mid);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.55;
+  }
+  .simple-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--moss);
+  }
+  .simple-list .list-year {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-left: 0.4rem;
+  }
+
+  .honors-block {
+    margin-bottom: 1.6rem;
+  }
+  .honors-block:last-child { margin-bottom: 0; }
+  .honors-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1a1d10;
+    padding: 2.4rem 5.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    color: rgba(240,237,226,0.4);
+    font-size: 0.95rem;
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .footer-links a {
+    color: rgba(240,237,226,0.38);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--ember-lt); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .page-header { padding: 3rem 2rem; }
+    .cv-body { grid-template-columns: 1fr; padding: 2.5rem 2rem; }
+    .cv-sidebar { display: none; }
+    .cv-entry { grid-template-columns: 1fr; gap: 0.3rem; }
+    .cv-entry-date { text-align: left; }
+    .skills-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Jordan Heiman</a>
+  <ul class="nav-links">
+    <li><a href="experience.html" class="active">Experience</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="references.html">References</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="section-label">Jordan Heiman</p>
+    <h1>Experience</h1>
+    <div class="page-header-rule"></div>
+    <p>Wildlife researcher, data systems designer, and field biologist with over a decade of experience across the western United States.</p>
+    <a href="#" class="download-btn">Download full CV (PDF)</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="cv-body">
+
+  <!-- SIDEBAR -->
+  <aside class="cv-sidebar">
+    <ul class="cv-sidebar-nav">
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Work Experience</a></li>
+      <li><a href="#presentations">Presentations</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#honors">Honors &amp; Awards</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="cv-content">
+
+    <!-- EDUCATION -->
+    <section class="cv-section" id="education">
+      <p class="section-label">Academic Background</p>
+      <h2>Education</h2>
+      <div class="section-rule"></div>
+
+      <div class="edu-entry">
+        <h3>University of Montana</h3>
+        <p class="degree">M.S. Wildlife Biology · Missoula, MT · 2025</p>
+        <p class="thesis">Thesis: Probability of Use and Occupancy Sampling Design for Rocky Mountain Red Fox</p>
+      </div>
+
+      <div class="edu-entry">
+        <h3>Drake University</h3>
+        <p class="degree">B.S. Zoology, minor in Environmental Science · Des Moines, IA · 2011</p>
+        <p class="edu-meta">Graduated Magna Cum Laude · GPA 3.71</p>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section class="cv-section" id="experience">
+      <p class="section-label">Professional History</p>
+      <h2>Work Experience</h2>
+      <div class="section-rule"></div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">
+          <span class="date-range">Dec. 2020 –<br>Present</span>
+        </div>
+        <div class="cv-entry-body">
+          <h3>Graduate Research Associate</h3>
+          <p class="org">Multiregional Multispecies Mesocarnivore Monitoring · USFS Rocky Mountain Research Station</p>
+          <p class="location">Great Falls / Missoula, MT</p>
+          <p class="pi">PI: Jody Tucker</p>
+          <ul>
+            <li>Design and lead development of a multiregional database and data management ecosystem for large-scale mesocarnivore monitoring</li>
+            <li>Write R code for automated reports, maps, and data analysis pipelines; develop project-wide macros integrating Access, R, and ArcGIS</li>
+            <li>Work with USFS Rocky Mountain Research Station to develop protocols for multiregional monitoring of wolverine, fisher, lynx, red fox, and marten</li>
+            <li>Assist with writing scientific publications on noninvasive monitoring techniques</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">
+          <span class="date-range">June 2020 –<br>Aug. 2022</span>
+        </div>
+        <div class="cv-entry-body">
+          <h3>Veterinary Technician</h3>
+          <p class="org">Best Friends Animal Hospital</p>
+          <p class="location">Great Falls, MT</p>
+          <p class="pi">Practice Manager: Amanda Norton</p>
+          <ul>
+            <li>Intake, triage, and monitoring of patients; assisted with surgery, anesthesia, and postoperative care</li>
+            <li>Collected samples, took radiographs, performed lab tests, and maintained animal care records</li>
+            <li>Supervised veterinary assistants and conducted owner discharge appointments</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">
+          <span class="date-range">Jan. 2020 –<br>Apr. 2020</span>
+        </div>
+        <div class="cv-entry-body">
+          <h3>Mesocarnivore Monitoring Technician</h3>
+          <p class="org">Multispecies Mesocarnivore Monitoring Program · University of Montana</p>
+          <p class="location">West Yellowstone / Missoula, MT</p>
+          <p class="pi">PI: Jessie Golding</p>
+          <ul>
+            <li>Conducted snow track surveys for wolverine, fisher, lynx, montane red fox, and marten</li>
+            <li>Collected eDNA and traditional DNA samples (scat, urine, hair); backtracked target species</li>
+            <li>Safely operated and maintained snowmobiles in remote winter terrain</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">
+          <span class="date-range">May 2018 –<br>Dec. 2019</span>
+        </div>
+        <div class="cv-entry-body">
+          <h3>Junior Specialist</h3>
+          <p class="org">Siskiyou Deer and Puma Project · University of California</p>
+          <p class="location">Mt. Shasta, CA</p>
+          <p class="pi">PI: Heiko Wittmer</p>
+          <ul>
+            <li>Visited GPS collar kill sites; assisted with mountain lion captures using hounds and cage traps</li>
+            <li>Conducted black-tailed deer fawn captures and radio telemetry; investigated collared deer mortalities</li>
+            <li>Conducted vegetation surveys and trained ten interns for deer pellet surveys</li>
+            <li>Collected field data using Collector for ArcGIS in challenging terrain and weather</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">
+          <span class="date-range">July 2017 –<br>Apr. 2018</span>
+        </div>
+        <div class="cv-entry-body">
+          <h3>Terrestrial Biologist</h3>
+          <p class="org">National Park Service · Yosemite National Park</p>
+          <p class="location">El Portal, CA</p>
+          <p class="pi">Park Biologist: Sarah Stock</p>
+          <ul>
+            <li>Organized and led targeted captures for Pacific fisher; assisted with mountain lion research planning</li>
+            <li>Developed and managed trail camera databases across multiple projects</li>
+            <li>Assisted with feather searches, owl surveys, and project report writing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">
+          <span class="date-range">July 2017 –<br>Apr. 2018</span>
+        </div>
+        <div class="cv-entry-body">
+          <h3>Ecological Technician</h3>
+          <p class="org">Integral Ecology Research Center</p>
+          <p class="location">Blue Lake, CA</p>
+          <p class="pi">Co-Founder: Greta Wengert</p>
+          <ul>
+            <li>Assisted with mountain lion research database development and small mammal trapping</li>
+            <li>Worked cooperatively with Yosemite National Park and Sierra National Forest</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">
+          <span class="date-range">Apr. 2014 –<br>Oct. 2017</span>
+        </div>
+        <div class="cv-entry-body">
+          <h3>Fisher &amp; Mountain Lion Field Technician</h3>
+          <p class="org">Kings River Fisher Project · USFS Sierra National Forest</p>
+          <p class="location">Shaver Lake, CA</p>
+          <p class="pi">PI: Craig Thompson</p>
+          <ul>
+            <li>Managed day-to-day operations for a crew of two; trained and oversaw CDFW scientific aides and project volunteers</li>
+            <li>Designed, built, and maintained project Microsoft Access database, datasheets, and ArcGIS maps</li>
+            <li>Visited mountain lion GPS collar kill sites; conducted captures with hounds and box traps</li>
+            <li>Conducted ground and aerial radio telemetry for fishers; located and monitored den and rest sites</li>
+            <li>Set and checked box traps daily during winter fisher trapping seasons; assisted with processing captures</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PRESENTATIONS -->
+    <section class="cv-section" id="presentations">
+      <p class="section-label">Oral &amp; Poster</p>
+      <h2>Presentations</h2>
+      <div class="section-rule"></div>
+
+      <div class="presentation-entry">
+        <span class="pres-type">Oral Presentation</span>
+        <p class="pres-title">Evidence of Niche Separation Between Red Foxes and Coyotes in the US Rocky Mountains</p>
+        <p class="pres-meta"><strong>Heiman, J.</strong>, Tucker, J., Millspaugh, J., Schwartz, J., and Forrester, T. · Annual Conference of The Wildlife Society · Edmonton, Alberta · October 2025</p>
+      </div>
+
+      <div class="presentation-entry">
+        <span class="pres-type">Oral Presentation</span>
+        <p class="pres-title">Optimizing local surveys for broad-scale wildlife population monitoring</p>
+        <p class="pres-meta"><strong>Heiman, J.</strong>, Tucker, J., Schwartz, M., and Millspaugh, J. · Annual Conference of The Wildlife Society · Louisville, KY · November 2023</p>
+      </div>
+
+      <div class="presentation-entry">
+        <span class="pres-type">Oral Presentation</span>
+        <p class="pres-title">Lion prey selection in the Sierra National Forest; influence of forest management and implications for mesocarnivores</p>
+        <p class="pres-meta"><strong>Heiman, J.</strong>, Thompson, C., Nichols, B., Gese, E., and Purcell, K. · Annual Meeting of the Society for Northwestern Biology · Blue Lake, CA · February 2017</p>
+      </div>
+
+      <div class="presentation-entry">
+        <span class="pres-type">Poster</span>
+        <p class="pres-title">Development of a Thermocouple Device to Measure Zebra Finch Nest Temperature During Incubation</p>
+        <p class="pres-meta"><strong>Heiman, J.</strong> and Christensen, D. · 8th Annual Drake University Conference on Undergraduate Research in the Sciences · Des Moines, IA · April 2011</p>
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="cv-section" id="skills">
+      <p class="section-label">Capabilities</p>
+      <h2>Skills</h2>
+      <div class="section-rule"></div>
+
+      <div class="skills-grid">
+        <div class="skills-card">
+          <h3>Technical &amp; Computational</h3>
+          <ul>
+            <li>R programming</li>
+            <li>R Shiny</li>
+            <li>Bayesian modeling</li>
+            <li>ArcGIS</li>
+            <li>Microsoft Access</li>
+            <li>Adobe Suite</li>
+            <li>Presence</li>
+            <li>LOAS</li>
+            <li>GPS Plus X</li>
+            <li>CPW Photo Warehouse</li>
+            <li>Survey123</li>
+            <li>Field Maps</li>
+            <li>CyberTracker</li>
+            <li>Avenza Maps</li>
+            <li>CalTopo</li>
+            <li>Windows, macOS, Linux</li>
+          </ul>
+        </div>
+        <div class="skills-card">
+          <h3>Field</h3>
+          <ul>
+            <li>Camera trapping and noninvasive monitoring</li>
+            <li>Trapping for small carnivores, mountain lions, ungulates, and small mammals</li>
+            <li>Ground and aerial radio telemetry (GPS and VHF collars)</li>
+            <li>Snow track surveys and eDNA collection</li>
+            <li>4WD vehicle operation in hazardous conditions; snowmobile operation</li>
+            <li>Animal care and handling — 55+ species</li>
+          </ul>
+        </div>
+        <div class="skills-card">
+          <h3>Teaching &amp; Leadership</h3>
+          <ul>
+            <li>Co-chair, TWS Biometrics Working Group Graduate Student Special Committee <span class="list-year">· 2025–2026</span></li>
+            <li>Leading TWS Biometrics Working Group and Spatial Data Working Group Introduction to R Workshop <span class="list-year">· 2025–2026</span></li>
+            <li>Developed and led R programming workshop for incoming graduate students</li>
+            <li>Led University of Montana Wildlife Biology R Users Group</li>
+            <li>Co-led student initiative on harassment prevention and inclusion at field sites</li>
+            <li>Experienced presenting to and educating general public audiences</li>
+          </ul>
+        </div>
+        <div class="skills-card">
+          <h3>Natural History</h3>
+          <ul>
+            <li>Flora identification: Montana, Midwest, Sierra Nevada, Northern California — native and invasive species</li>
+            <li>15+ years hiking and camping experience across western North America</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="cv-section" id="certifications">
+      <p class="section-label">Training</p>
+      <h2>Certifications</h2>
+      <div class="section-rule"></div>
+
+      <ul class="simple-list">
+        <li>USFS Snowmobile Training <span class="list-year">· Jan. 2020</span></li>
+        <li>American Heart Association CPR/AED Certification <span class="list-year">· Jan. 2020</span></li>
+        <li>National Safety Council Defensive Driving (8-hour) <span class="list-year">· Dec. 2019</span></li>
+        <li>First Aid / National Health and Safety First Aid <span class="list-year">· Dec. 2019</span></li>
+        <li>American Avalanche Association Level 1 <span class="list-year">· Mar. 2019</span></li>
+        <li>US Forest Service Driver License <span class="list-year">· Jan. 2017, current</span></li>
+        <li>ATV Safety Institute Rider Course <span class="list-year">· Dec. 2014</span></li>
+        <li>Basic Aviation Safety, A-100 (USFS) <span class="list-year">· Jul. 2014</span></li>
+      </ul>
+    </section>
+
+    <!-- HONORS -->
+    <section class="cv-section" id="honors">
+      <p class="section-label">Recognition</p>
+      <h2>Honors &amp; Awards</h2>
+      <div class="section-rule"></div>
+
+      <div class="honors-block">
+        <h3>Service &amp; Membership</h3>
+        <ul class="simple-list">
+          <li>TWS Biometrics Working Group Student Excellence Award <span class="list-year">· 2026</span></li>
+          <li>AmeriCorps — successful completion of 1,700-hour term of service <span class="list-year">· Dec. 2012</span></li>
+          <li>The Wildlife Society — Member since 2013</li>
+        </ul>
+      </div>
+
+      <div class="honors-block">
+        <h3>Drake University</h3>
+        <ul class="simple-list">
+          <li>Graduated Magna Cum Laude</li>
+          <li>Presidential Scholarship <span class="list-year">· 2010–2013</span></li>
+          <li>President's List <span class="list-year">· Fall 2010, Fall 2011</span></li>
+          <li>Dean's List <span class="list-year">· Spring 2011</span></li>
+          <li>Transfer Peer Mentor <span class="list-year">· Spring–Fall 2010</span></li>
+          <li>Senior Thesis: A Comparative Analysis of High Pathogenic and Low Pathogenic Avian Influenza A Protein Sequences. In collaboration with Dr. Heidi Sleister, Department of Biology.</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <span class="footer-name">Jordan Heiman</span>
+  <ul class="footer-links">
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
