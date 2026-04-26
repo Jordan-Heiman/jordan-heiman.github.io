@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>References – Jordan Heiman</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep:      #2a2e1e;
+    --olive:     #5a6830;
+    --moss:      #94a85a;
+    --bone:      #f0ede2;
+    --parchment: #f7f5ee;
+    --ember:     #c45c2a;
+    --ember-lt:  #e07a48;
+    --mid:       #484e30;
+    --light:     #7a8250;
+    --muted:     #9a9e80;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--parchment);
+    color: var(--deep);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--parchment);
+    border-bottom: 1px solid rgba(42,46,30,0.1);
+    padding: 1.1rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    color: var(--deep);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ember); }
+  .nav-links a.active { color: var(--deep); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--deep);
+    padding: 4rem 5.5rem;
+  }
+  .page-header-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .page-header .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 0.6rem;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--bone);
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+  .page-header-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--ember);
+    margin-bottom: 1.2rem;
+  }
+  .page-header p {
+    font-size: 0.95rem;
+    color: rgba(240,237,226,0.65);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--deep) 0%, var(--olive) 40%, var(--moss) 72%, var(--bone) 100%);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .ref-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+  }
+
+  /* ── REFERENCE CARDS ── */
+  .ref-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .ref-card {
+    background: white;
+    border: 1px solid rgba(42,46,30,0.08);
+    padding: 2rem 2.2rem;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .ref-card:hover { border-color: rgba(42,46,30,0.2); }
+  .ref-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--ember);
+  }
+
+  .ref-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 0.15rem;
+  }
+  .ref-name a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .ref-name a:hover { color: var(--ember); }
+
+  .ref-title {
+    font-size: 0.88rem;
+    color: var(--olive);
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+    line-height: 1.5;
+  }
+
+  .ref-org {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.55;
+    margin-bottom: 0.7rem;
+  }
+
+  .ref-relation {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--moss);
+    border: 1px solid var(--moss);
+    background: rgba(148,168,90,0.07);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  /* ── CONTACT NOTE ── */
+  .contact-note {
+    background: var(--bone);
+    border-left: 3px solid var(--ember);
+    padding: 1.4rem 1.8rem;
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+  .contact-note a {
+    color: var(--ember);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .contact-note a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1a1d10;
+    padding: 2.4rem 5.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    color: rgba(240,237,226,0.4);
+    font-size: 0.95rem;
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .footer-links a {
+    color: rgba(240,237,226,0.38);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--ember-lt); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .page-header { padding: 3rem 2rem; }
+    .ref-body { padding: 3rem 2rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Jordan Heiman</a>
+  <ul class="nav-links">
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="references.html" class="active">References</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="section-label">Jordan Heiman</p>
+    <h1>References</h1>
+    <div class="page-header-rule"></div>
+    <p>Professional references available upon request. Contact information provided on request out of courtesy to my references.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="ref-body">
+
+  <div class="ref-grid">
+
+    <div class="ref-card">
+      <p class="ref-name">
+        <a href="https://scholar.google.com/citations?user=L8R--2sAAAAJ" target="_blank">Dr. Michael Schwartz</a>
+      </p>
+      <p class="ref-title">Director, National Genomics Center for Wildlife and Fish Conservation<br>Wildlife Ecology Program Manager</p>
+      <p class="ref-org">United States Forest Service, Rocky Mountain Research Station</p>
+      <span class="ref-relation">Co-advisor, M.S. thesis</span>
+    </div>
+
+    <div class="ref-card">
+      <p class="ref-name">
+        <a href="https://scholar.google.com/citations?user=nzKoHvUAAAAJ&hl=en&oi=ao" target="_blank">Dr. Joshua Millspaugh</a>
+      </p>
+      <p class="ref-title">Boone and Crockett Professor of Wildlife Conservation<br>Campfire Conservation Fund Professor of Wildlife Conservation</p>
+      <p class="ref-org">University of Montana · SUNY College of Environmental Science and Forestry</p>
+      <span class="ref-relation">Co-advisor, M.S. thesis</span>
+    </div>
+
+    <div class="ref-card">
+      <p class="ref-name">
+        <a href="https://scholar.google.com/citations?user=7WhvOCIAAAAJ&hl=en&oi=ao" target="_blank">Dr. Jody Tucker</a>
+      </p>
+      <p class="ref-title">Biological Scientist<br>Wildlife Ecology Program Deputy Manager</p>
+      <p class="ref-org">United States Forest Service, Rocky Mountain Research Station</p>
+      <span class="ref-relation">Supervisor · M.S. committee member</span>
+    </div>
+
+  </div>
+
+  <div class="contact-note">
+    Contact information for all references is available upon request. Reach out via the <a href="contact.html">contact page</a> and I'll be happy to connect you.
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-name">Jordan Heiman</span>
+  <ul class="footer-links">
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="references.html">References</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
