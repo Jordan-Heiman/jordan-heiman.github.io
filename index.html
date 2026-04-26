@@ -329,7 +329,7 @@
   .gallery-item {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3 / 4;
   }
   .gallery-item img {
     width: 100%;
@@ -339,6 +339,9 @@
     display: block;
     transition: transform 0.4s ease;
   }
+  .gallery-item:nth-child(1) img { object-position: center 20%; }
+  .gallery-item:nth-child(2) img { object-position: center 30%; }
+  .gallery-item:nth-child(3) img { object-position: center 40%; }
   .gallery-item:hover img { transform: scale(1.03); }
   .gallery-caption {
     position: absolute;
@@ -393,7 +396,7 @@
     </div>
   </div>
   <div class="hero-image">
-    <img src="images/hero-photo.jpg" alt="Jordan making a goofy face while climbing a tree to set up a trail camera up in a tree">
+    <img src="images/hero-photo.jpg" alt="Myself making a goofy face while climbing a tree to set up a trail camera up in a tree">
     <span class="hero-image-caption">Helena-Lewis and Clark NF, MT · Mesocarnivore Monitoring</span>
   </div>
 </section>
@@ -463,7 +466,7 @@
   <!-- PHOTO GALLERY -->
   <div class="about-gallery">
     <div class="gallery-item">
-      <img src="images/fisher_capture.JPG" alt="Jordan holding a fisher during a capture in the Sierra Nevada">
+      <img src="images/fisher_capture.JPG" alt="Jordan holding a Pacific fisher during a capture in the Sierra Nevada">
       <p class="gallery-caption">Sierra Nevada, CA · Fisher Capture</p>
     </div>
     <div class="gallery-item">
