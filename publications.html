@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications – Jordan Heiman</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep:      #2a2e1e;
+    --olive:     #5a6830;
+    --moss:      #94a85a;
+    --bone:      #f0ede2;
+    --parchment: #f7f5ee;
+    --ember:     #c45c2a;
+    --ember-lt:  #e07a48;
+    --mid:       #484e30;
+    --light:     #7a8250;
+    --muted:     #9a9e80;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--parchment);
+    color: var(--deep);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--parchment);
+    border-bottom: 1px solid rgba(42,46,30,0.1);
+    padding: 1.1rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    color: var(--deep);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ember); }
+  .nav-links a.active { color: var(--deep); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--deep);
+    padding: 4rem 5.5rem;
+  }
+  .page-header-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .page-header .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 0.6rem;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--bone);
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+  .page-header-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--ember);
+    margin-bottom: 1.2rem;
+  }
+  .page-header p {
+    font-size: 0.95rem;
+    color: rgba(240,237,226,0.65);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+  .header-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.6rem;
+    flex-wrap: wrap;
+  }
+  .header-link-btn {
+    display: inline-block;
+    background: transparent;
+    border: 1.5px solid rgba(240,237,226,0.3);
+    color: rgba(240,237,226,0.75);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .header-link-btn:hover { border-color: var(--ember); color: var(--ember-lt); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--deep) 0%, var(--olive) 40%, var(--moss) 72%, var(--bone) 100%);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .pub-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+  }
+
+  /* ── SECTION ── */
+  .pub-section {
+    margin-bottom: 4rem;
+  }
+  .pub-section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 0.5rem;
+  }
+  .pub-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 0.4rem;
+  }
+  .section-rule {
+    width: 32px;
+    height: 2px;
+    background: var(--moss);
+    margin-bottom: 2rem;
+    margin-top: 0.6rem;
+  }
+
+  /* ── PUB ENTRY ── */
+  .pub-entry {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 0 1.8rem;
+    margin-bottom: 2.2rem;
+    align-items: start;
+  }
+  .pub-entry:last-child { margin-bottom: 0; }
+
+  .pub-year {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted);
+    padding-top: 0.2rem;
+    text-align: right;
+    line-height: 1.4;
+  }
+
+  .pub-content {
+    border-left: 3px solid var(--ember);
+    padding-left: 1.4rem;
+  }
+
+  .pub-type {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 0.4rem;
+  }
+
+  .pub-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--deep);
+    line-height: 1.35;
+    margin-bottom: 0.4rem;
+  }
+
+  .pub-authors {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.55;
+    margin-bottom: 0.3rem;
+  }
+  .pub-authors strong {
+    color: var(--deep);
+    font-weight: 600;
+  }
+
+  .pub-journal {
+    font-size: 0.85rem;
+    color: var(--light);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    line-height: 1.45;
+  }
+
+  .pub-meta {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .pub-doi {
+    font-size: 0.78rem;
+    color: var(--ember);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .pub-doi:hover { color: var(--ember-lt); text-decoration: underline; }
+
+  .pub-badge {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+    border: 1px solid;
+  }
+  .badge-first {
+    color: var(--olive);
+    border-color: var(--moss);
+    background: rgba(148,168,90,0.08);
+  }
+  .badge-embargo {
+    color: var(--muted);
+    border-color: var(--muted);
+    background: transparent;
+  }
+  .badge-correction {
+    color: var(--light);
+    border-color: rgba(122,130,80,0.4);
+    background: transparent;
+  }
+
+  .pub-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    font-style: italic;
+  }
+
+  /* ── THESIS ENTRY ── */
+  .thesis-entry {
+    border-left: 3px solid var(--moss);
+    padding-left: 1.4rem;
+  }
+  .thesis-entry .pub-title {
+    font-size: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1a1d10;
+    padding: 2.4rem 5.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    color: rgba(240,237,226,0.4);
+    font-size: 0.95rem;
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .footer-links a {
+    color: rgba(240,237,226,0.38);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--ember-lt); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .page-header { padding: 3rem 2rem; }
+    .pub-body { padding: 3rem 2rem; }
+    .pub-entry { grid-template-columns: 1fr; gap: 0.3rem; }
+    .pub-year { text-align: left; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Jordan Heiman</a>
+  <ul class="nav-links">
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="references.html">References</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="section-label">Jordan Heiman</p>
+    <h1>Publications</h1>
+    <div class="page-header-rule"></div>
+    <p>Peer-reviewed articles, thesis work, and other scholarly output. First-author and co-authored publications in wildlife ecology, quantitative methods, and collaborative monitoring.</p>
+    <div class="header-links">
+      <a href="https://scholar.google.com/citations?user=1TFwtXwAAAAJ&hl=en" target="_blank" class="header-link-btn">Google Scholar</a>
+      <a href="https://orcid.org/0009-0003-7858-8561" target="_blank" class="header-link-btn">ORCID</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="pub-body">
+
+  <!-- PEER-REVIEWED ARTICLES -->
+  <div class="pub-section">
+    <p class="section-label">Scholarly Output</p>
+    <h2>Peer-Reviewed Articles</h2>
+    <div class="section-rule"></div>
+
+    <!-- Tucker et al. 2026 -->
+    <div class="pub-entry">
+      <div class="pub-year">2026</div>
+      <div class="pub-content">
+        <span class="pub-type">Research Article</span>
+        <p class="pub-title">How to avoid the camera trap: the effect of camera settings on occupancy analysis and photo data workload</p>
+        <p class="pub-authors">Tucker, J., <strong>Heiman, J.</strong>, Golding, J., Barry, B., and Moriarty, K.</p>
+        <p class="pub-journal">Stacks Journal: 26003. Published March 27, 2026.</p>
+        <div class="pub-meta">
+          <a href="https://doi.org/10.60102/stacks-26003" target="_blank" class="pub-doi">doi: 10.60102/stacks-26003</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Devarajan et al. 2025 -->
+    <div class="pub-entry">
+      <div class="pub-year">2025</div>
+      <div class="pub-content">
+        <span class="pub-type">Research Article</span>
+        <p class="pub-title">When the wild things are: Defining mammalian diel activity and plasticity</p>
+        <p class="pub-authors">Devarajan, K., Fidino, M., Farris, Z. J., Adalsteinsson, S. A., Andrade-Ponce, G., Angstmann, J. L., <strong>Heiman, J.</strong>, et al.</p>
+        <p class="pub-journal">Science Advances, 11(9), eado3843.</p>
+        <div class="pub-meta">
+          <a href="https://doi.org/10.1126/sciadv.ado3843" target="_blank" class="pub-doi">doi: 10.1126/sciadv.ado3843</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Heiman et al. 2024 -->
+    <div class="pub-entry">
+      <div class="pub-year">2024</div>
+      <div class="pub-content">
+        <span class="pub-type">Research Article</span>
+        <p class="pub-title">Leveraging local wildlife surveys for robust occupancy trend estimation</p>
+        <p class="pub-authors"><strong>Heiman, J. L.</strong>, Tucker, J. M., Sells, S. N., Millspaugh, J. J., and Schwartz, M. K.</p>
+        <p class="pub-journal">Ecological Indicators, 169, 112863.</p>
+        <div class="pub-meta">
+          <a href="https://doi.org/10.1016/j.ecolind.2024.112863" target="_blank" class="pub-doi">doi: 10.1016/j.ecolind.2024.112863</a>
+          <span class="pub-badge badge-first">First author</span>
+        </div>
+        <p class="pub-note">Supplemental materials published in a separate corrigendum, 2025. Ecological Indicators, 180, 114326.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- THESIS -->
+  <div class="pub-section">
+    <p class="section-label">Graduate Research</p>
+    <h2>Thesis</h2>
+    <div class="section-rule"></div>
+
+    <div class="thesis-entry">
+      <span class="pub-type">M.S. Thesis · University of Montana · 2025</span>
+      <p class="pub-title">Better Together: Leveraging Existing Research to Evaluate Population Trends, Habitat Selection, and Species Interactions of Mesocarnivores</p>
+      <p class="pub-authors"><strong>Heiman, Jordan Lee</strong></p>
+      <p class="pub-journal">W.A. Franke College of Forestry and Conservation, University of Montana.</p>
+      <p class="pub-note">Under embargo until June 2026. Contact me directly for more information.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-name">Jordan Heiman</span>
+  <ul class="footer-links">
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="references.html">References</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
