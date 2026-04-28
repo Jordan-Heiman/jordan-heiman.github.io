@@ -67,10 +67,7 @@
   /* ── PAGE HEADER ── */
   .page-header {
     background: var(--deep);
-    background-image: linear-gradient(rgba(42,46,30,0.82), rgba(42,46,30,0.82)), url('images/telemetry_snow.jpg');
-    background-size: 6%;
-    background-position: top;
-    padding: 7rem 5.5rem;
+    padding: 4rem 5.5rem;
   }
   .page-header-inner {
     max-width: 1140px;
@@ -103,6 +100,17 @@
     color: rgba(240,237,226,0.65);
     max-width: 560px;
     line-height: 1.75;
+  }
+  .header-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: rgba(240,237,226,0.75);
+    border-left: 3px solid var(--ember);
+    padding-left: 1.2rem;
+    margin-top: 1.4rem;
+    max-width: 480px;
+    line-height: 1.6;
   }
   .download-btn {
     display: inline-block;
@@ -142,7 +150,17 @@
     position: sticky;
     top: 5rem;
     align-self: start;
+    background-image: linear-gradient(rgba(42,46,30,0.75), rgba(42,46,30,0.75)), url('images/telemetry_snow.jpg');
+    background-size: cover;
+    background-position: 60% center;
+    border-radius: 2px;
+    padding: 1.5rem 1rem;
   }
+  .cv-sidebar-nav a {
+    color: rgba(240,237,226,0.7);
+    border-left-color: transparent;
+  }
+  .cv-sidebar-nav a:hover { color: var(--ember-lt); border-left-color: var(--ember); }
   .cv-sidebar-nav {
     list-style: none;
     display: flex;
@@ -469,7 +487,7 @@
   <div class="page-header-inner">
     <h1>Experience</h1>
     <div class="page-header-rule"></div>
-    <p>Wildlife researcher, data systems developer, and field biologist with over a decade of experience across the western United States. Ten years of fieldwork taught me that good data starts before you open a laptop.</p>
+    <p>A decade of fieldwork across the western United States taught me that good data starts before you open a laptop — and that the most meaningful research happens when scientists work together across landscapes, not just within them.</p>
     <a href="#" class="download-btn">Download full CV (PDF)</a>
   </div>
 </div>
